@@ -1,8 +1,6 @@
 # Carrierwave::Kraken
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/carrierwave/kraken`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Gem enables kraken image optimisation for carrierwave
 
 ## Installation
 
@@ -22,7 +20,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Include extension to uploader class
+```ruby
+class ImageUploader < CarrierWave::Uploader::Base
+  include CarrierWave::Kraken::CarrierWaveExtension
+```
+
+Call `process :optimize` in uploader. I.e:
+
+```ruby
+  version :thumbnail do
+    process optimize: [{lossy: true}]
+  end
+```
+
+Don't forget to specify ENV['KRAKEN_API_KEY'] and ENV['KRAKEN_API_SECRET'] variables
 
 ## Known issues
 
@@ -36,8 +48,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/carrierwave-kraken. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/tiramizoo/carrierwave-kraken.
 
 ## License
 

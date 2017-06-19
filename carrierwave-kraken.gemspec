@@ -20,8 +20,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "carrierwave"
-  spec.add_development_dependency "kraken-io", "~> 0.1.3"
+  spec.add_dependency "carrierwave"
+  spec.add_dependency "kraken-io", "~> 0.1.3"
+
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
